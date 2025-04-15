@@ -71,11 +71,7 @@
         const oldest = inventors.sort(function(a,b){
             const lastDude = a.passed - a.year;
             const nextDude = b.passed - b.year;
-            if (lastDude > nextDude){
-                return -1;
-            }else{
-                return 1;
-            }
+            return lastDude > nextDude ? -1 : 1;
         });
         console.table(oldest);
 
