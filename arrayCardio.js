@@ -29,6 +29,21 @@
     
         // Array.prototype.filter()
         // 1. Filter the list of inventors for those who were born in the 1500's
+
+        /**
+         * Parameters:
+         * Input: Array of inventors
+         * Output: Array of list of  inventors meeting the condition
+         * Results: Display lists of filtered lists. Key /value pair of lists
+         * Edge case
+         * Pseudocode:
+         * 1. create a variable to store the list of inventors
+         * 2. create a conditional statement to verify if condition is true
+         *        check year they were born
+         *        check if year is > or = to 1500 AND <=1599
+         * 3. if conditions are true = Add the result to the new filtered list
+         * 4. last step: return a display list of filtered list
+         * */
     
         const fifteen = inventors.filter(function (inventor) {
             if (inventor.year >= 1500 && inventor.year < 1600) {
@@ -39,6 +54,18 @@
     
         // Array.prototype.map()
         // 2. Give us an array of the inventors first and last names
+        /**
+             * Parameters:
+                 * Input : Array of inventors
+                 * Output: Array of first and last names
+             * Results: Display list of first and last names
+             * Edge case:
+             * Pseudocode:
+                 * create a variable to store the list of inventors
+                 * take the first name and last name ,then combine them into a string
+                 * add the full name to a new list
+             * last step: display the list of full names
+         * */
         const fullNames = inventors.map(inventor => inventor.first + ' ' + inventor.last);
         console.log(fullNames);
     
@@ -53,12 +80,32 @@
         // });
         // console.table(ordered);
 
-        const  ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+        /**
+         * Pseudocode:
+         * 
+         * create a variable to store the list of inventors
+         * compare each pair of inventors 
+         * look at their year of birth
+         * write a conditional statement to check if a was born after b in the new list or otherwise
+         * last step: display the sorted list.
+         */
 
+        const  ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
         console.table(ordered);
     
         // Array.prototype.reduce()
         // 4. How many years did all the inventors live all together?
+
+        /**
+         * start with total set to zero
+         * go thru each inventor(total,inventor)
+         * for each iventor: 
+         * subtract their birthyear from year passed = years they lived
+         * add the result to the total
+         * then store the valaue  
+         * last:display the results
+         * 
+         */
         
         const totalYears = inventors.reduce((total, inventor) => {
             return total + (inventor.passed - inventor.year)
